@@ -7,12 +7,13 @@
     <script src="tippy.js"></script>
 
     <script>
-        var results;
+        var results = {};
         Papa.parse("/data.csv", {
             download: true,
             header: true,
             complete: (x) => {
-                results = x;
+                console.log(x);
+                $.extend( true, results, x );
             }
         });
 
