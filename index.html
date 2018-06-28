@@ -12,7 +12,6 @@
             download: true,
             header: true,
             complete: (x) => {
-                console.log(x);
                 $.extend( true, results, x );
             }
         });
@@ -29,22 +28,24 @@
 
         function setStuff() {
             for (i in results.data) {
-                tippy_html_list['_' + results.data[i]['Sklypo Nr.']] = document.createElement('div');
-                var tippy_text = document.createElement('p');
-                tippy_text.innerHTML = 'Adresas:</br>' + results.data[i]['Adresas'] + '</br></br>Sklypo Nr:</br>' + results.data[i]['Sklypo Nr.'] + '</br></br>Tekstas:</br>' + results.data[i]['Tekstas_1'];
-                tippy_html_list['_' + results.data[i]['Sklypo Nr.']].appendChild(tippy_text);
-            };
-            for (i in results.data) {
                 $('#_' + results.data[i]['Sklypo Nr.']).css('fill', spalvos[results.data[i].Spalva]);
                 var temp = document.getElementById('_' + results.data[i]['Sklypo Nr.']);
+                document.getElementById('_' + results.data[i]['Sklypo Nr.']).setAttribute("stroke-width", 1);
+                document.getElementById('_' + results.data[i]['Sklypo Nr.']).setAttribute("stroke", '#000');
+
+                //Tooltips
+                var tippy_text = document.createElement('p');
+                tippy_text.innerHTML = 'Adresas:</br>' + results.data[i]['Adresas'] + '</br></br>Sklypo Nr:</br>' + results.data[i]['Sklypo Nr.'] + '</br></br>Tekstas:</br>' + results.data[i]['Tekstas_1'];
                 tippy(temp, {
-                    html: tippy_html_list['_' + results.data[i]['Sklypo Nr.']]
+                    html: tippy_text,
+                    animateFill: false,
+                    followCursor: true
                 })
             };
         };
 
         $(document).ready(function () {
-            setTimeout(setStuff, 1);
+            setTimeout(setStuff, 10);
         });
 
     </script>
