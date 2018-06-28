@@ -1,0 +1,342 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="papaparse.min.js"></script>
+    <script src="tippy.js"></script>
+
+    <script>
+        var results;
+        Papa.parse("/data.csv", {
+            download: true,
+            header: true,
+            complete: (x) => {
+                results = x;
+            }
+        });
+
+        var spalvos = {
+            "1": 'red',
+            "2": 'blue',
+            "3": 'yellow',
+            "4": 'green',
+            "5": 'purple',
+        };
+
+        var tippy_html_list = {};
+
+        function setStuff() {
+            for (i in results.data) {
+                tippy_html_list['_' + results.data[i]['Sklypo Nr.']] = document.createElement('div');
+                var tippy_text = document.createElement('p');
+                tippy_text.innerHTML = 'Adresas:</br>' + results.data[i]['Adresas'] + '</br></br>Sklypo Nr:</br>' + results.data[i]['Sklypo Nr.'] + '</br></br>Tekstas:</br>' + results.data[i]['Tekstas_1'];
+                tippy_html_list['_' + results.data[i]['Sklypo Nr.']].appendChild(tippy_text);
+            };
+            for (i in results.data) {
+                $('#_' + results.data[i]['Sklypo Nr.']).css('fill', spalvos[results.data[i].Spalva]);
+                var temp = document.getElementById('_' + results.data[i]['Sklypo Nr.']);
+                tippy(temp, {
+                    html: tippy_html_list['_' + results.data[i]['Sklypo Nr.']]
+                })
+            };
+        };
+
+        $(document).ready(function () {
+            setTimeout(setStuff, 1);
+        });
+
+    </script>
+</head>
+
+<body>
+    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1252 1110">
+        <title>final</title>
+        <polygon id="_97" data-name="97" points="573 363 600 366 598 394 571 387 573 363" style="fill:none" />
+        <polygon id="_98" data-name="98" points="574 347 573 363 600 366 606 366 606 348 574 347" style="fill:none" />
+        <polygon id="_99" data-name="99" points="575 330 574 347 606 348 605 332 575 330" style="fill:none" />
+        <polygon id="_100" data-name="100" points="577 313 575 330 605 332 607 317 577 313" style="fill:none" />
+        <polygon id="_102" data-name="102" points="578 296 577 313 603.47 316.53 606 299 578 296" style="fill:none" />
+        <polygon id="_104" data-name="104" points="579 278 578 296 606 299 607 282 579 278" style="fill:none" />
+        <polygon id="_106" data-name="106" points="581 274 582 259 612 261 611 278 581 274" style="fill:none" />
+        <polygon id="_108" data-name="108" points="583 242 582 259 613 261 614 245 583 242" style="fill:none" />
+        <polygon id="_110" data-name="110" points="586 225 582.98 242.4 614 245 616 228 586 225" style="fill:none" />
+        <polygon id="_112" data-name="112" points="589 190 589 217 619 219 620 207 614 206 615 190 589 190" style="fill:none" />
+        <polygon id="_113" data-name="113" points="589 156 589 190 623 190 626 179 614 178 599 162 597 154 589 156" style="fill:none"
+        />
+        <polygon id="_114" data-name="114" points="614 133 604 149 604 152 597 154 580 158 576 139 614 133" style="fill:none" />
+        <polygon id="_115" data-name="115" points="558 139 576 139 580 158 582 169 562 167 558 139" style="fill:none" />
+        <polygon id="_116" data-name="116" points="565 192 564 177 562 167 582 169 585 195 565 192" style="fill:none" />
+        <polygon id="_117" data-name="117" points="565 218 565 192 585 195 583 220 565 218" style="fill:none" />
+        <polygon id="_243" data-name="243" points="552 180 564.03 177.5 565 192 565 218 552 216 552 180" style="fill:none" />
+        <polygon id="_300" data-name="300" points="533 197 552 198.58 552 180 533 185 533 197" style="fill:none" />
+        <polygon id="_111" data-name="111" points="556 221 554 238 579 240 580 224 556 221" style="fill:none" />
+        <polygon id="_118" data-name="118" points="531 217 556 221 554 238 530 236 531 217" style="fill:none" />
+        <polygon id="_109" data-name="109" points="578 258 552 255 554 238 579 240 578 258" style="fill:none" />
+        <polygon id="_107" data-name="107" points="551 271 552 255 578 258 576 273 551 271" style="fill:none" />
+        <polygon id="_122" data-name="122" points="526 269 551 271 552 255 528 252 526 269" style="fill:none" />
+        <polygon id="_120" data-name="120" points="530 236 528 252 552 255 554 238 530 236" style="fill:none" />
+        <polygon id="_1" data-name="1" points="614 523 612 499 593 500 596 525 614 523" style="fill:none" />
+        <polygon id="_2" data-name="2" points="579 526 596 525 593 500 577 501 579 526" style="fill:none" />
+        <polygon id="_3" data-name="3" points="560 503 562 528 579 526 577 501 560 503" style="fill:none" />
+        <polygon id="_4" data-name="4" points="544 505 546 529 562 528 560 503 544 505" style="fill:none" />
+        <polygon id="_5" data-name="5" points="527 506 529 531 546 529 544 505 527 506" style="fill:none" />
+        <polygon id="_6" data-name="6" points="510 508 513 533 529 531 527 506 510 508" style="fill:none" />
+        <polygon id="_37" data-name="37" points="592 475 593 500 612 499 610 474 592 475" style="fill:none" />
+        <polygon id="_35" data-name="35" points="574 476 577 501 593 500 592 475 574 476" style="fill:none" />
+        <polygon id="_33" data-name="33" points="558 478 560 503 577 501 574 476 558 478" style="fill:none" />
+        <polygon id="_31" data-name="31" points="541 480 544 505 560 503 558 478 541 480" style="fill:none" />
+        <polygon id="_29" data-name="29" points="525 482 527 506 544 505 541 480 525 482" style="fill:none" />
+        <polygon id="_27" data-name="27" points="508 483 510 508 527 506 525 482 508 483" style="fill:none" />
+        <polygon id="_38" data-name="38" points="588 446 591 471 610 469 608 444 588 446" style="fill:none" />
+        <polygon id="_36" data-name="36" points="571 447 574 472 591 471 588 446 571 447" style="fill:none" />
+        <polygon id="_34" data-name="34" points="555 449 557 474 574 472 571 447 555 449" style="fill:none" />
+        <polygon id="_32" data-name="32" points="539 451 541 476 557 474 555 449 539 451" style="fill:none" />
+        <polygon id="_30" data-name="30" points="522 453 523 477 541 476 539 451 522 453" style="fill:none" />
+        <polygon id="_28" data-name="28" points="506 454 507 479 523 477 522 453 506 454" style="fill:none" />
+        <polygon id="_39" data-name="39" points="606 419 608 444 588 446 586 421 606 419" style="fill:none" />
+        <polygon id="_40" data-name="40" points="570 423 571 447 588 446 586 421 570 423" style="fill:none" />
+        <polygon id="_42" data-name="42" points="552 424 555 449 571 447 570 423 552 424" style="fill:none" />
+        <polygon id="_44" data-name="44" points="536 425 539 451 555 449 552 424 536 425" style="fill:none" />
+        <polygon id="_46" data-name="46" points="520 427 522 453 539 451 536 425 520 427" style="fill:none" />
+        <polygon id="_48" data-name="48" points="503 428 506 454 522 453 520 427 503 428" style="fill:none" />
+        <polygon id="_41" data-name="41" points="566 393 569 418 590 416 588 396 566 393" style="fill:none" />
+        <polygon id="_43" data-name="43" points="559 382 566 391 566 393 569 418 552 420 549 386 559 382" style="fill:none" />
+        <polygon id="_45" data-name="45" points="533 387 536 421 552 420 549 386 533 387" style="fill:none" />
+        <polygon id="_60" data-name="60" points="498 378 500 399 533.79 395.99 533 387 520 380 498 378" style="fill:none" />
+        <polygon id="_47" data-name="47" points="519 423 536 421 533.63 396.01 516.84 397.5 519 423" style="fill:none" />
+        <polygon id="_49" data-name="49" points="503 424 519 423 517 398 500 399 503 424" style="fill:none" />
+        <polygon id="_61" data-name="61" points="480 401 477 376 493 375 496 399 480 401" style="fill:none" />
+        <polygon id="_51" data-name="51" points="499 425 483 427 480 401 496 399 499 425" style="fill:none" />
+        <polygon id="_53" data-name="53" points="465 428 483 427 480 401 463 402 465 428" style="fill:none" />
+        <polygon id="_55" data-name="55" points="449 429 465 428 463 402 447 404 449 429" style="fill:none" />
+        <polygon id="_57" data-name="57" points="430 405 433 430 449 429 447 404 430 405" style="fill:none" />
+        <polygon id="_59" data-name="59" points="413 407 415 431 433 430 430 405 413 407" style="fill:none" />
+        <polygon id="_62" data-name="62" points="461 377 463 402 480 401 477 376 461 377" style="fill:none" />
+        <polygon id="_64" data-name="64" points="444 379 447 404 463 402 461 377 444 379" style="fill:none" />
+        <polygon id="_66" data-name="66" points="428 380 430 405 447 404 444 379 428 380" style="fill:none" />
+        <polygon id="_68" data-name="68" points="411 382 413 407 430 405 428 380 411 382" style="fill:none" />
+        <polygon id="_96" data-name="96" points="570 356 544 354 543 373 568 375 570 356" style="fill:none" />
+        <polygon id="_93" data-name="93" points="571 328 570 356 554.6 354.82 557 327 571 328" style="fill:none" />
+        <polygon id="_92" data-name="92" points="541 325 539 353 544 354 554.43 354.8 557 327 541 325" style="fill:none" />
+        <polygon id="_91" data-name="91" points="527 324 525 353 539 353 541 325 527 324" style="fill:none" />
+        <polygon id="_89" data-name="89" points="511 322 508 351 525 353 527 324 511 322" style="fill:none" />
+        <polygon id="_87" data-name="87" points="495 320 491 349 508 351 511 322 495 320" style="fill:none" />
+        <polygon id="_85" data-name="85" points="477 319 473 343 491 353 491 349 495 320 477 319" style="fill:none" />
+        <polygon id="_83" data-name="83" points="461 316 458 341 473 343 477 319 461 316" style="fill:none" />
+        <polygon id="_101" data-name="101" points="543 308 542 321 571 324 573 311 543 308" style="fill:none" />
+        <polygon id="_103" data-name="103" points="544 293 543 308 573 311 574 295 544 293" style="fill:none" />
+        <polygon id="_105" data-name="105" points="576 278 550 275 549 293 574 295 576 278" style="fill:none" />
+        <polygon id="_124" data-name="124" points="525 273 524 292 549 293.33 550 275 525 273" style="fill:none" />
+        <polygon id="_90" data-name="90" points="528 320 530.62 292.35 544 293 542 321 528 320" style="fill:none" />
+        <polygon id="_88" data-name="88" points="511 318 528 320 530.61 292.48 514 291 511 318" style="fill:none" />
+        <polygon id="_86" data-name="86" points="499 289 495 316 511 318 514 291 499 289" style="fill:none" />
+        <polygon id="_84" data-name="84" points="478 290 475 314 495 316 499 289 484 288 484 291 478 290" style="fill:none" />
+        <polygon id="_126" data-name="126" points="501 272 499 289 484 288 484 291 474 289 476 270 501 272" style="fill:none" />
+        <polygon id="_125" data-name="125" points="525 273 501 272 499 289 514 291 524 292 525 273" style="fill:none" />
+        <polygon id="_119" data-name="119" points="501 216 500 229 525 231 526 226 530.51 226.25 531 217 501 216" style="fill:none"
+        />
+        <polygon id="_130" data-name="130" points="484 216 482 245 499 246 500 229 501 216 484 216" style="fill:none" />
+        <polygon id="_121" data-name="121" points="525 234 499.76 233.01 499 246 499 250 524 251 525 234" style="fill:none" />
+        <polygon id="_123" data-name="123" points="497 266 499 250 524 251 523 268 497 266" style="fill:none" />
+        <polygon id="_127" data-name="127" points="477 247 477 265 497 266 499 250 499 246 482 245 482 247 477 247" style="fill:none"
+        />
+        <polygon id="_95" data-name="95" points="517 370 518.86 352.28 525 353 539 353 544 354 543 373 517 370" style="fill:none"
+        />
+        <polygon id="_94" data-name="94" points="491 359 503 375 517 370 519 352 491 349 491 359" style="fill:none" />
+        <polygon id="_63a" data-name="63a" points="473 348 477 372 493 371 488 364 486 355 477 349 473 348" style="fill:none" />
+        <polygon id="_63" data-name="63" points="458 346 460 373 477 372 473 348 458 346" style="fill:none" />
+        <polygon id="_65" data-name="65" points="441 343 444 375 460 373 458 346 441 343" style="fill:none" />
+        <polygon id="_67" data-name="67" points="423 339 427 376 444 375 441 343 423 339" style="fill:none" />
+        <polygon id="_69" data-name="69" points="406 340 410 378 427 376 423 339 406 340" style="fill:none" />
+        <polygon id="_50" data-name="50" points="483 431 485 456 501 454 498 430 483 431" style="fill:none" />
+        <polygon id="_52" data-name="52" points="465 432 468 458 485 456 483 431 465 432" style="fill:none" />
+        <polygon id="_54" data-name="54" points="449 434 452 460 468 458 465 432 449 434" style="fill:none" />
+        <polygon id="_56" data-name="56" points="433 435 435 461 448 460 449 463 452 463 452 460 449 434 433 435" style="fill:none"
+        />
+        <polygon id="_58" data-name="58" points="417 436 421 462 435 461 433 435 417 436" style="fill:none" />
+        <polygon id="_26" data-name="26" points="487 481 485 456 501 454 503 479 487 481" style="fill:none" />
+        <polygon id="_24" data-name="24" points="470 482 468 458 485 456 487 481 470 482" style="fill:none" />
+        <polygon id="_22" data-name="22" points="450 484 449 463 452 463 452 460 468 458 470 482 450 484" style="fill:none" />
+        <polygon id="_7" data-name="7" points="490 510 492 534 508 533 506 508 490 510" style="fill:none" />
+        <polygon id="_25" data-name="25" points="487 485 490 510 506 508 504 484 487 485" style="fill:none" />
+        <polygon id="_23" data-name="23" points="470 486 473 511 490 510 487 485 470 486" style="fill:none" />
+        <polygon id="_21" data-name="21" points="441 489 443 506 472.02 502.83 470 486 441 489" style="fill:none" />
+        <polygon id="_20" data-name="20" points="445 522 443 506 472 503 473 511 474 519 445 522" style="fill:none" />
+        <polygon id="_9" data-name="9" points="447 539 445 522 474 519 476 536 447 539" style="fill:none" />
+        <polygon id="_8" data-name="8" points="492 534 476 536 473 511 490 510 492 534" style="fill:none" />
+        <polygon id="_17" data-name="17" points="403 476 403 496 437 494 421 474 403 476" style="fill:none" />
+        <polygon id="_19" data-name="19" points="422 519 418.7 495.08 437 494 440 517 422 519" style="fill:none" />
+        <polygon id="_10" data-name="10" points="442 539 440 517 422 519 420 519 423 542 442 539" style="fill:none" />
+        <polygon id="_11" data-name="11" points="403 521 401 545 423 542 420 519 403 521" style="fill:none" />
+        <polygon id="_18" data-name="18" points="403 496 403 521.31 420 519 422 519 418.75 495.45 403 496" style="fill:none" />
+        <polygon id="_15" data-name="15" points="369 478 369 496 400 493 400 477 369 478" style="fill:none" />
+        <polygon id="_14" data-name="14" points="368 512 369 496 400 493 399 510 368 512" style="fill:none" />
+        <polygon id="_13" data-name="13" points="398 524 399 510 368 512 368 515 361 516 362 527 398 524" style="fill:none" />
+        <polygon id="_12" data-name="12" points="397 542 398 524 362 527 364 549 377 548 377 544 397 542" style="fill:none" />
+        <polygon id="_16b" data-name="16b" points="397 435 397 451 393 451 393 461 400 461 401 472 421 469 418 462 413 436 397 435"
+            style="fill:none" />
+        <polygon id="_16c" data-name="16c" points="375 429 395 431 394 439 387 443 393 451 393 461 370 460 375 429" style="fill:none"
+        />
+        <polygon id="_16" data-name="16" points="369 476 401 472 400 461 393 461 370 460 369 476" style="fill:none" />
+        <polygon id="_72" data-name="72" points="380 368 379 349 385 343 396 344 403 351 405 366 380 368" style="fill:none" />
+        <polygon id="_71" data-name="71" points="407 383 381 385 380 368 405 366 407 383" style="fill:none" />
+        <polygon id="_70" data-name="70" points="381 403 408 400 407 383 381 385 381 403" style="fill:none" />
+        <polygon id="_72a" data-name="72a" points="365 400 381 403 381 385 380 368 379.45 357.5 373 358 365 400" style="fill:none"
+        />
+        <polygon id="_71a" data-name="71a" points="375 429 386.1 402.43 381 403 365 400 359 426 375 429" style="fill:none" />
+        <polygon id="_70a" data-name="70a" points="357 457 370.34 457.92 375 429 359 426 355 450 357 457" style="fill:none" />
+        <polygon id="_129" data-name="129" points="441 248 440 265 472 268 472 251 441 248" style="fill:none" />
+        <polygon id="_134" data-name="134" points="428 248 425 278 440 279 440 265 441 248 428 248" style="fill:none" />
+        <polygon id="_128" data-name="128" points="470 282 472 267.67 440 265 440 279 470 282" style="fill:none" />
+        <polygon id="_82" data-name="82" points="445 306 448.44 279.84 470 282 468 309 445 306" style="fill:none" />
+        <polygon id="_80" data-name="80" points="430 304 433.41 278.56 440 279 448 280 445 306 430 304" style="fill:none" />
+        <polygon id="_78" data-name="78" points="418 277 416 302 430 304 433 279 418 277" style="fill:none" />
+        <polygon id="_76" data-name="76" points="404 276 401 301 416 302 418 277 404 276" style="fill:none" />
+        <polygon id="_136" data-name="136" points="414 246 411.84 276.56 418 277 425 278 428 248 414 246" style="fill:none" />
+        <polygon id="_138" data-name="138" points="390 245 389 258 412.98 260.41 414 246 390 245" style="fill:none" />
+        <polygon id="_137" data-name="137" points="386.79 272.49 403.65 276.15 412 277 413.27 260.51 389.37 257.58 386.79 272.49"
+            style="fill:none" />
+        <polygon id="_74" data-name="74" points="383 299 401 301 404 276 387 273 383 299" style="fill:none" />
+        <polygon id="_81" data-name="81" points="444 310 441 339 455 341 459 312 444 310" style="fill:none" />
+        <polygon id="_79" data-name="79" points="429 308 426 335 441 339 444 310 429 308" style="fill:none" />
+        <polygon id="_77" data-name="77" points="415 306 412 334 426 335 429 308 415 306" style="fill:none" />
+        <polygon id="_75" data-name="75" points="399 305 395 334 412 334 415 306 399 305" style="fill:none" />
+        <polygon id="_73" data-name="73" points="383 303 380 332 395 334 399 305 383 303" style="fill:none" />
+        <polygon id="_152" data-name="152" points="352 298 349 313 376 318 378 302 352 298" style="fill:none" />
+        <polygon id="_154" data-name="154" points="346 327 349 313 376 318 374 333 346 327" style="fill:none" />
+        <polygon id="_155" data-name="155" points="343 342 346 327 374 333 378 340 367 348 343 342" style="fill:none" />
+        <polygon id="_156" data-name="156" points="339 356 343 342 367 348 369 357 367 363 339 356" style="fill:none" />
+        <polygon id="_157" data-name="157" points="336 370 339 356 367 363 364 377 336 370" style="fill:none" />
+        <polygon id="_158" data-name="158" points="332 386 336 370 364 377 361 392 332 386" style="fill:none" />
+        <polygon id="_159" data-name="159" points="329 401 332 386 361 392 358 408 329 401" style="fill:none" />
+        <polygon id="_160" data-name="160" points="321 424 326 415 329 401 358 408 353 431 321 424" style="fill:none" />
+        <polygon id="_131" data-name="131" points="471 217 468 247 477 247 482 247 482 245 484 216 471 217" style="fill:none" />
+        <polygon id="_132" data-name="132" points="455 218 453 245 468 247 471 217 455 218" style="fill:none" />
+        <polygon id="_133" data-name="133" points="435 221 433 244 453 245 455 218 435 221" style="fill:none" />
+        <polygon id="_135" data-name="135" points="409 224 408 242 433 244 435 221 409 224" style="fill:none" />
+        <polygon id="_140" data-name="140" points="371 243 367 272 383 273 386 244 371 243" style="fill:none" />
+        <polygon id="_141" data-name="141" points="356 242 352 271 367 272 371 243 356 242" style="fill:none" />
+        <polygon id="_142" data-name="142" points="341 241 338 271 352 271 356 242 341 241" style="fill:none" />
+        <polygon id="_143" data-name="143" points="326 242 323 270 338 271 341 241 326 242" style="fill:none" />
+        <polygon id="_144" data-name="144" points="311 243 307 274 322 273 323 270 326 242 311 243" style="fill:none" />
+        <polygon id="_145" data-name="145" points="296 244 292 274 307 274 311 243 296 244" style="fill:none" />
+        <polygon id="_146" data-name="146" points="280 244 278 274 292 274 296 244 280 244" style="fill:none" />
+        <polygon id="_147" data-name="147" points="266 246 262 276 278 274 280 244 266 246" style="fill:none" />
+        <polygon id="_181" data-name="181" points="254 223 257 237 288 234 284 217 254 223" style="fill:none" />
+        <polygon id="_182" data-name="182" points="251 209 254 223 284 217 281 202 251 209" style="fill:none" />
+        <polygon id="_183" data-name="183" points="248 194 251 209 281 202 278 187 248 194" style="fill:none" />
+        <polygon id="_184" data-name="184" points="244 179 248 194 278 187 272 172 244 179" style="fill:none" />
+        <polygon id="_185" data-name="185" points="237 164 244 179 272 172 266 151 258 150 258 159 237 164" style="fill:none" />
+        <polygon id="_186" data-name="186" points="224 147 237 164 258 159 258 150 248 148 241 138 224 147" style="fill:none" />
+        <polygon id="_187" data-name="187" points="212 125 224 147 241 138 231 115 212 125" style="fill:none" />
+        <polygon id="_188" data-name="188" points="198 99 212 125 231 115 219 88 198 99" style="fill:none" />
+        <polygon id="_239" data-name="239" points="185 76 198 99 219 88 206 65 185 76" style="fill:none" />
+        <polygon id="_240" data-name="240" points="172 54 185 76 206 65 193 41 172 54" style="fill:none" />
+        <polygon id="_241" data-name="241" points="160 33 172 54 193 41 178 21 160 33" style="fill:none" />
+        <polygon id="_242" data-name="242" points="140 11 155 36 160 33 178 21 161 0 140 11" style="fill:none" />
+        <polygon id="_189" data-name="189" points="244 243 245 275 257 274 260 242 244 243" style="fill:none" />
+        <polygon id="_190" data-name="190" points="228 244 231 276 245 275 244 243 228 244" style="fill:none" />
+        <polygon id="_191" data-name="191" points="213 246 215 278 231 276 228 244 213 246" style="fill:none" />
+        <polygon id="_192" data-name="192" points="198 248 201 279 215 278 213 246 198 248" style="fill:none" />
+        <polygon id="_193" data-name="193" points="183 250 186 281 201 279 198 248 183 250" style="fill:none" />
+        <polygon id="_194" data-name="194" points="168 250 171 283 186.42 281 183.03 250.34 168 250" style="fill:none" />
+        <polygon id="_195" data-name="195" points="153 252 156 284 171 283 168 250 153 252" style="fill:none" />
+        <polygon id="_196" data-name="196" points="138 254 141 285 156 284 153 252 138 254" style="fill:none" />
+        <polygon id="_197" data-name="197" points="124 256 126 287 141 285 138 254 124 256" style="fill:none" />
+        <polygon id="_198" data-name="198" points="108 258 112 288 126 287 124 256 108 258" style="fill:none" />
+        <polygon id="_205" data-name="205" points="215 278 218 305 237 303 236.5 275.61 215 278" style="fill:none" />
+        <polygon id="_204" data-name="204" points="203 306 218 305 215 278 201 279 203 306" style="fill:none" />
+        <polygon id="_203" data-name="203" points="188 307 203 306 201 279 186 281 188 307" style="fill:none" />
+        <polygon id="_202" data-name="202" points="173 309 188 307 186 281 171 283 173 309" style="fill:none" />
+        <polygon id="_201" data-name="201" points="158 311 173 309 171 283 156 284 158 311" style="fill:none" />
+        <polygon id="_200" data-name="200" points="142 312 158 311 156 284 141 285 142 312" style="fill:none" />
+        <polygon id="_199" data-name="199" points="114 304 126 315 142 312 141 285 126 287 112 288 114 304" style="fill:none" />
+        <polygon id="_216" data-name="216" points="101 237 103 254 131 250 129 234 101 237" style="fill:none" />
+        <polygon id="_218" data-name="218" points="97 220 101 237 129 234 125 217 97 220" style="fill:none" />
+        <polygon id="_220" data-name="220" points="94 204 97.08 220.33 125 217 124 201 94 204" style="fill:none" />
+        <polygon id="_222" data-name="222" points="95 187 97.93 203.61 124 201 119 182 95 187" style="fill:none" />
+        <polygon id="_223" data-name="223" points="67 192 68 208 94 204 98 204 95 187 67 192" style="fill:none" />
+        <polygon id="_224" data-name="224" points="42 196 43 211 68 208 67 192 42 196" style="fill:none" />
+        <polygon id="_221" data-name="221" points="56 225 97 220 94 204 68 208 43 211 56 225" style="fill:none" />
+        <polygon id="_219" data-name="219" points="56 241 101 237 97 220 56 225 56 241" style="fill:none" />
+        <polygon id="_217" data-name="217" points="61 261 103 254 101 237 56 241 61 261" style="fill:none" />
+        <polygon id="_232" data-name="232" points="80 158 81 186 109 178 102 163 80 158" style="fill:none" />
+        <polygon id="_231" data-name="231" points="63 160 66 188 81 186 80 158 63 160" style="fill:none" />
+        <polygon id="_230" data-name="230" points="41 171 42 192 66 188 63.77 167.17 41 171" style="fill:none" />
+        <polygon id="_238b1" data-name="238b1" points="32 159 34 175 41.16 174.25 41 171 64 167 63 160 62 155 32 159" style="fill:none"
+        />
+        <polygon id="_233" data-name="233" points="65 138 67 155 92 153 88 133 65 138" style="fill:none" />
+        <polygon id="_234" data-name="234" points="62 120 65 138 88 133 82 116 62 120" style="fill:none" />
+        <polygon id="_238" data-name="238" points="15 134 14 143 60 138 59 126 20 130 20 134 15 134" style="fill:none" />
+        <polygon id="_238a" data-name="238a" points="10 158 62 151 60 138 14 143 10 158" style="fill:none" />
+        <polygon id="_238b" data-name="238b" points="9 162 5 178 34 175 32 159 9 162" style="fill:none" />
+        <polygon id="_229" data-name="229" points="1 198 42 192 41 174 34 175 5 178 1 198" style="fill:none" />
+        <polygon id="_228" data-name="228" points="0 214 38 210 36 197 17 199 16.48 195.73 1 198 0 214" style="fill:none" />
+        <polygon id="_227" data-name="227" points="5 231 52 226 37.68 210.03 0 214 5 231" style="fill:none" />
+        <polygon id="_226" data-name="226" points="8 247 52 242 51.68 226.03 5 231 8 247" style="fill:none" />
+        <polygon id="_225" data-name="225" points="16 266 56 262 52 242 11.67 246.58 16 266" style="fill:none" />
+        <polygon id="_148" data-name="148" points="362 295 367 272 383 273 379 297 362 295" style="fill:none" />
+        <polygon id="_149" data-name="149" points="341 287 362.5 292.73 367 272 352 271 342.92 271 341 287" style="fill:none" />
+        <polygon id="_150" data-name="150" points="317 286 341 290 341 287 343 271 338 271 323 270 322 273 320 273.13 317 286" style="fill:none"
+        />
+        <polygon id="_151" data-name="151" points="315 299 345 306 348 292 341 290 317 286 315 299" style="fill:none" />
+        <polygon id="_153" data-name="153" points="311 314 342 322 345 306 315 299 311 314" style="fill:none" />
+        <polygon id="_171" data-name="171" points="322 347 335 350 342 322 328 318.39 322 347" style="fill:none" />
+        <polygon id="_173" data-name="173" points="307 343 322 347 328 318.71 313.26 314.58 307 343" style="fill:none" />
+        <polygon id="_170" data-name="170" points="320 350 315 376 330 380 335 354 320 350" style="fill:none" />
+        <polygon id="_172" data-name="172" points="306 346 300 374 315 376 320 350 306 346" style="fill:none" />
+        <polygon id="_169" data-name="169" points="297 387 326 394 330 380 315 376 300 374 297 387" style="fill:none" />
+        <polygon id="_165" data-name="165" points="305 420 315 425 320 417 326 394 311.58 390.52 305 420" style="fill:none" />
+        <polygon id="_166" data-name="166" points="288 429 307 434 315 425 305 420 311.54 390.69 297 387 288 429" style="fill:none"
+        />
+        <polygon id="_174" data-name="174" points="292 343 286 370 300 374 306 346 292 343" style="fill:none" />
+        <polygon id="_176" data-name="176" points="277 340 270 367 286 370 292 343 277 340" style="fill:none" />
+        <polygon id="_205a" data-name="205a" points="297.92 274 293 285 298 287 297 291 315.54 295.51 317 286 320 273 307 274 297.92 274"
+            style="fill:none" />
+        <polygon id="_175" data-name="175" points="293 339 307 343 313 315 311 314 315 299 315.25 295.44 297 291 296 294 291 293 291 299 299 310 293 339"
+            style="fill:none" />
+        <polygon id="_177" data-name="177" points="277 335 293 339 299 310 291 299 291 293 284 291 279 295 278 305 283 308 277 335"
+            style="fill:none" />
+        <polygon id="_190a" data-name="190a" points="260 283 258 295 279 295 280 290 260 283" style="fill:none" />
+        <polygon id="_180" data-name="180" points="255 316 258 295 279 295 278 305 283 308 279.94 321.76 255 316" style="fill:none"
+        />
+        <polygon id="_179" data-name="179" points="253 331 277 335 280 322 255 316 253 331" style="fill:none" />
+        <polygon id="_206" data-name="206" points="234 307 236 358 247 358 251 306 234 307" style="fill:none" />
+        <polygon id="_207" data-name="207" points="219 308 220 332 234.97 331.69 234 307 219 308" style="fill:none" />
+        <polygon id="_208" data-name="208" points="203 310 208 359 221 357 220 332 219 308 203 310" style="fill:none" />
+        <polygon id="_207a" data-name="207a" points="236 358 221 357 220 332 235 332 236 358" style="fill:none" />
+        <polygon id="_164" data-name="164" points="336 523 335 555 351 554 361 543 353 540 347 529 347 521 336 523" style="fill:none"
+        />
+        <polygon id="_15a" data-name="15a" points="354 489 349 517 361 516 368 515 368 512 369 496 369 489 354 489" style="fill:none"
+        />
+        <polygon id="_163" data-name="163" points="328 481 334 520 346 518 345 502 349 490 357 485 328 481" style="fill:none" />
+        <polygon id="_16a" data-name="16a" points="357 457 360 472 359 489 369 489 369 478 369 476 370 460 370 458 357 457" style="fill:none"
+        />
+        <polygon id="_162" data-name="162" points="330 451 328 481 357 485 353 458 338 457 330 451" style="fill:none" />
+        <polygon id="_161" data-name="161" points="310 438 331 444 330 451 338 457 353 458 353 431 321 424 310 438" style="fill:none"
+        />
+        <polygon id="_167" data-name="167" points="281 384 275 411 281 431 286 432 288 429 297 387 281 384" style="fill:none" />
+        <polygon id="_168" data-name="168" points="258 367 275 411.63 281 384 297 387 300 374 286 370 270 367 261 364 258 367" style="fill:none"
+        />
+        <polygon id="_178" data-name="178" points="254 335 251 358 261 364 270 367 277 340 254 335" style="fill:none" />
+        <polygon id="_209" data-name="209" points="189 312 194 358 208 359 203 310 189 312" style="fill:none" />
+        <polygon id="_210" data-name="210" points="169 314 172 354 188 355 184 313 169 314" style="fill:none" />
+        <polygon id="_211" data-name="211" points="154 315 156 340 147 348 156 358 172 358 172 354 169 314 154 315" style="fill:none"
+        />
+        <polygon id="_212" data-name="212" points="129 318 126 322 147 348 156 340 154 315 129 318" style="fill:none" />
+        <polygon id="_213" data-name="213" points="87.5 277 89.54 314 113 315 109.94 305 104.84 276 87.5 277" style="fill:none" />
+        <polygon id="_214" data-name="214" points="74 277 74 286 65 286 67 314 90 318 90 314 88 277 74 277" style="fill:none" />
+        <polygon id="_215" data-name="215" points="104 258 75 262 60 267 65 270 65 286 74 286 74 277 88 277 105 276 104 258" style="fill:none"
+        />
+        <polygon id="_139" data-name="139" points="367 233 367 239 408 242 409 224 367 233" style="fill:none" />
+        <polygon id="_301" data-name="301" points="355 234 355 238 367 239 367 233 355 234" style="fill:none" />
+        <polygon id="_116a" data-name="116a" points="269 278 269 281 293 285 296.55 277.06 269 278" style="fill:none" />
+        <polygon id="_235" data-name="235" points="54 94 59 120 62 120 82 116 78 92 54 94" style="fill:none" />
+        <polygon id="_236" data-name="236" points="36 95 41 124 59 120 54 94 36 95" style="fill:none" />
+        <polygon id="_237" data-name="237" points="17 94 16 126 41 124 36 95 17 94" style="fill:none" />
+        <polygon id="_41a" data-name="41a" points="590 416 607 415 606 366 600 366 598 394 588 396 590 416" style="fill:none" />
+    </svg>
+</body>
+
+</html>
